@@ -1,6 +1,5 @@
 package by.bsuir.timetable.repository;
 
-import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.WriteConcern;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,10 +17,10 @@ public class MongoConfig extends AbstractMongoConfiguration {
     }
 
     @Override
-    public Mongo mongo() throws Exception {
-        Mongo mongo = new MongoClient();
-        mongo.setWriteConcern(WriteConcern.SAFE);
+    public MongoClient mongo() throws Exception {
+        MongoClient mongoClient = new MongoClient();
+        mongoClient.setWriteConcern(WriteConcern.SAFE);
 
-        return mongo;
+        return mongoClient;
     }
 }
