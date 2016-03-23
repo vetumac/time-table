@@ -9,11 +9,22 @@ public class Station {
 
     private String name;
 
+    private Long code;
+
+    public Station(Long code, String name) {
+        this.name = name;
+        this.code = code;
+    }
+
     public Station() {
     }
 
-    public Station(String name) {
-        this.name = name;
+    public Long getCode() {
+        return code;
+    }
+
+    public void setCode(Long code) {
+        this.code = code;
     }
 
     public String getName() {
@@ -27,7 +38,7 @@ public class Station {
     @Override
     public String toString() {
         return "Station{" +
-                "id='" + id + '\'' +
+                "code=" + code +
                 ", name='" + name + '\'' +
                 '}';
     }
