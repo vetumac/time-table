@@ -2,19 +2,23 @@ package by.bsuir.timetable.domain;
 
 import org.springframework.data.annotation.Id;
 
-import java.time.ZonedDateTime;
+import java.time.LocalTime;
+import java.time.Period;
 import java.util.Map;
 
 public class Route {
     @Id
     private String id;
     private Long code;
-    private ZonedDateTime departure;
+    private LocalTime departure;
+    private Period period;
     private Map<Long, Station> route;
 
-    public Route(Long code, ZonedDateTime departure, Map<Long, Station> route) {
+    public Route(Long code, LocalTime departure, Period period, Map<Long, Station> route) {
+
         this.code = code;
         this.departure = departure;
+        this.period = period;
         this.route = route;
     }
 
@@ -37,12 +41,20 @@ public class Route {
         this.code = code;
     }
 
-    public ZonedDateTime getDeparture() {
+    public LocalTime getDeparture() {
         return departure;
     }
 
-    public void setDeparture(ZonedDateTime departure) {
+    public void setDeparture(LocalTime departure) {
         this.departure = departure;
+    }
+
+    public Period getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(Period period) {
+        this.period = period;
     }
 
     public Map<Long, Station> getRoute() {
