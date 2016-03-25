@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.OffsetDateTime;
 import java.time.Period;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -39,14 +38,14 @@ public class HomeController {
 
     @RequestMapping(value = "/addstation", method = RequestMethod.GET)
     String addStation() {
-        stationRepository.save(new Station(counterService.getNextSequence("station"), "NewVasyuki", ZoneId.of("Europe/Minsk")));
+        stationRepository.save(new Station(counterService.getNextSequence("station"), "NewVasyuki", "Europe/Minsk"));
         //     accountRepository.save(new Account("admin", "admin"));
-        Map<Long, Station> route = new TreeMap<Long, Station>();
+        Map<Long, Station> route = new TreeMap<>();
         route.put(0L, stationRepository.findByCode(1L));
         route.put(10L, stationRepository.findByCode(2L));
         routeRepository.save(new Route(counterService.getNextSequence("route"),
-                ZonedDateTime.now(),
-                ZonedDateTime.now().plusYears(1),
+                OffsetDateTime.now(),
+                OffsetDateTime.now().plusYears(1),
                 Period.ofDays(1),
                 route));
         return "Added";

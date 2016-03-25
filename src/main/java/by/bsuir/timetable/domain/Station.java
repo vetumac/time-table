@@ -2,23 +2,29 @@ package by.bsuir.timetable.domain;
 
 import org.springframework.data.annotation.Id;
 
-import java.time.ZoneId;
-
 public class Station {
 
     @Id
     private String id;
     private Long code;
     private String name;
-    private ZoneId zoneId;
+    private String zone;
 
     public Station() {
     }
 
-    public Station(Long code, String name, ZoneId zoneId) {
+    public Station(Long code, String name, String zone) {
         this.code = code;
         this.name = name;
-        this.zoneId = zoneId;
+        this.zone = zone;
+    }
+
+    public Long getCode() {
+        return code;
+    }
+
+    public void setCode(Long code) {
+        this.code = code;
     }
 
     public String getId() {
@@ -37,19 +43,11 @@ public class Station {
         this.name = name;
     }
 
-    public Long getCode() {
-        return code;
+    public String getZone() {
+        return zone;
     }
 
-    public void setCode(Long code) {
-        this.code = code;
-    }
-
-    public ZoneId getZoneId() {
-        return zoneId;
-    }
-
-    public void setZoneId(ZoneId zoneId) {
-        this.zoneId = zoneId;
+    public void setZone(String zone) {
+        this.zone = zone;
     }
 }

@@ -2,23 +2,23 @@ package by.bsuir.timetable.domain;
 
 import org.springframework.data.annotation.Id;
 
+import java.time.OffsetDateTime;
 import java.time.Period;
-import java.time.ZonedDateTime;
 import java.util.Map;
 
 public class Route {
     @Id
     private String id;
     private Long code;
-    private ZonedDateTime firstDeparture;
-    private ZonedDateTime lastDeparture;
+    private OffsetDateTime firstDeparture;
+    private OffsetDateTime lastDeparture;
     private Period period;
     private Map<Long, Station> route;
 
     public Route() {
     }
 
-    public Route(Long code, ZonedDateTime firstDeparture, ZonedDateTime lastDeparture, Period period, Map<Long, Station> route) {
+    public Route(Long code, OffsetDateTime firstDeparture, OffsetDateTime lastDeparture, Period period, Map<Long, Station> route) {
         this.code = code;
         this.firstDeparture = firstDeparture;
         this.lastDeparture = lastDeparture;
@@ -34,11 +34,11 @@ public class Route {
         this.code = code;
     }
 
-    public ZonedDateTime getFirstDeparture() {
+    public OffsetDateTime getFirstDeparture() {
         return firstDeparture;
     }
 
-    public void setFirstDeparture(ZonedDateTime firstDeparture) {
+    public void setFirstDeparture(OffsetDateTime firstDeparture) {
         this.firstDeparture = firstDeparture;
     }
 
@@ -50,11 +50,11 @@ public class Route {
         this.id = id;
     }
 
-    public ZonedDateTime getLastDeparture() {
+    public OffsetDateTime getLastDeparture() {
         return lastDeparture;
     }
 
-    public void setLastDeparture(ZonedDateTime lastDeparture) {
+    public void setLastDeparture(OffsetDateTime lastDeparture) {
         this.lastDeparture = lastDeparture;
     }
 
