@@ -2,23 +2,25 @@ package by.bsuir.timetable.domain;
 
 import org.springframework.data.annotation.Id;
 
-import java.time.OffsetDateTime;
-import java.time.Period;
+import java.time.LocalTime;
 import java.util.Map;
 
 public class Route {
     @Id
     private String id;
     private Long code;
-    private OffsetDateTime firstDeparture;
-    private OffsetDateTime lastDeparture;
-    private Period period;
-    private Map<Long, Station> route;
+    private LocalTime firstDeparture;
+    private LocalTime lastDeparture;
+    private Long period;
+    /*
+    * Time interval between start end current station in minutes and station id.
+    * */
+    private Map<Long, Long> route;
 
     public Route() {
     }
 
-    public Route(Long code, OffsetDateTime firstDeparture, OffsetDateTime lastDeparture, Period period, Map<Long, Station> route) {
+    public Route(Long code, LocalTime firstDeparture, LocalTime lastDeparture, Long period, Map<Long, Long> route) {
         this.code = code;
         this.firstDeparture = firstDeparture;
         this.lastDeparture = lastDeparture;
@@ -34,11 +36,11 @@ public class Route {
         this.code = code;
     }
 
-    public OffsetDateTime getFirstDeparture() {
+    public LocalTime getFirstDeparture() {
         return firstDeparture;
     }
 
-    public void setFirstDeparture(OffsetDateTime firstDeparture) {
+    public void setFirstDeparture(LocalTime firstDeparture) {
         this.firstDeparture = firstDeparture;
     }
 
@@ -50,27 +52,27 @@ public class Route {
         this.id = id;
     }
 
-    public OffsetDateTime getLastDeparture() {
+    public LocalTime getLastDeparture() {
         return lastDeparture;
     }
 
-    public void setLastDeparture(OffsetDateTime lastDeparture) {
+    public void setLastDeparture(LocalTime lastDeparture) {
         this.lastDeparture = lastDeparture;
     }
 
-    public Period getPeriod() {
+    public Long getPeriod() {
         return period;
     }
 
-    public void setPeriod(Period period) {
+    public void setPeriod(Long period) {
         this.period = period;
     }
 
-    public Map<Long, Station> getRoute() {
+    public Map<Long, Long> getRoute() {
         return route;
     }
 
-    public void setRoute(Map<Long, Station> route) {
+    public void setRoute(Map<Long, Long> route) {
         this.route = route;
     }
 }
