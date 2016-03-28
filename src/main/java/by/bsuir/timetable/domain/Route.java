@@ -1,16 +1,20 @@
 package by.bsuir.timetable.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalTime;
 import java.util.Map;
 
+@Document
 public class Route {
     @Id
     private String id;
+
+    @Indexed(unique = true)
     private Long code;
-    private LocalTime firstDeparture;
-    private LocalTime lastDeparture;
+    private LocalTime departure;
     private Long period;
     /*
     * Time interval between start end current station in minutes and station id.
@@ -20,10 +24,9 @@ public class Route {
     public Route() {
     }
 
-    public Route(Long code, LocalTime firstDeparture, LocalTime lastDeparture, Long period, Map<Long, Long> route) {
+    public Route(Long code, LocalTime departure, Long period, Map<Long, Long> route) {
         this.code = code;
-        this.firstDeparture = firstDeparture;
-        this.lastDeparture = lastDeparture;
+        this.departure = departure;
         this.period = period;
         this.route = route;
     }
@@ -36,12 +39,12 @@ public class Route {
         this.code = code;
     }
 
-    public LocalTime getFirstDeparture() {
-        return firstDeparture;
+    public LocalTime getDeparture() {
+        return departure;
     }
 
-    public void setFirstDeparture(LocalTime firstDeparture) {
-        this.firstDeparture = firstDeparture;
+    public void setDeparture(LocalTime departure) {
+        this.departure = departure;
     }
 
     public String getId() {
@@ -50,14 +53,6 @@ public class Route {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public LocalTime getLastDeparture() {
-        return lastDeparture;
-    }
-
-    public void setLastDeparture(LocalTime lastDeparture) {
-        this.lastDeparture = lastDeparture;
     }
 
     public Long getPeriod() {
@@ -74,5 +69,21 @@ public class Route {
 
     public void setRoute(Map<Long, Long> route) {
         this.route = route;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Route)) return false;
+
+        Route route = (Route) o;
+
+        return code.equals(route.code);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return code.hashCode();
     }
 }

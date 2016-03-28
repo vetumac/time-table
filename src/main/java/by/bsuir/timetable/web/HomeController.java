@@ -37,12 +37,11 @@ public class HomeController {
     String addStation() {
         stationRepository.save(new Station(counterService.getNextSequence("station"), "NewVasyuki", "Europe/Minsk"));
         //     accountRepository.save(new Account("admin", "admin"));
-        Map<Long, Station> route = new TreeMap<>();
-        route.put(0L, stationRepository.findByCode(5L));
-        route.put(10L, stationRepository.findByCode(6L));
+        Map<Long, Long> route = new TreeMap<>();
+        route.put(0L, 11L);
+        route.put(10L, 12L);
         routeRepository.save(new Route(counterService.getNextSequence("route"),
                 LocalTime.now(),
-                LocalTime.now().plusHours(1),
                 1L,
                 route));
         return "Added";

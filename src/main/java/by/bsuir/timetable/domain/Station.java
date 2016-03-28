@@ -1,12 +1,19 @@
 package by.bsuir.timetable.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class Station {
 
     @Id
     private String id;
+
+    @Indexed(unique = true)
     private Long code;
+
+    @Indexed
     private String name;
     private String zone;
 
@@ -49,5 +56,21 @@ public class Station {
 
     public void setZone(String zone) {
         this.zone = zone;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Station)) return false;
+
+        Station station = (Station) o;
+
+        return code.equals(station.code);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return code.hashCode();
     }
 }
