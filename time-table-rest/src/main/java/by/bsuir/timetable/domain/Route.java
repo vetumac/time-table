@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Map;
 
@@ -15,6 +16,8 @@ public class Route {
     @Indexed(unique = true)
     private Long code;
     private LocalTime departure;
+    private LocalDate start;
+    private LocalDate end;
     private Long period;
     /*
     * Time interval between start end current station in minutes and station id.
@@ -24,11 +27,13 @@ public class Route {
     public Route() {
     }
 
-    public Route(Long code, LocalTime departure, Long period, Map<Long, Long> route) {
+    public Route(Long code, LocalTime departure, LocalDate start, LocalDate end, Long period, Map<Long, Long> route) {
         this.code = code;
         this.departure = departure;
+        this.end = end;
         this.period = period;
         this.route = route;
+        this.start = start;
     }
 
     public Long getCode() {
@@ -45,6 +50,14 @@ public class Route {
 
     public void setDeparture(LocalTime departure) {
         this.departure = departure;
+    }
+
+    public LocalDate getEnd() {
+        return end;
+    }
+
+    public void setEnd(LocalDate end) {
+        this.end = end;
     }
 
     public String getId() {
@@ -69,6 +82,14 @@ public class Route {
 
     public void setRoute(Map<Long, Long> route) {
         this.route = route;
+    }
+
+    public LocalDate getStart() {
+        return start;
+    }
+
+    public void setStart(LocalDate start) {
+        this.start = start;
     }
 
     @Override

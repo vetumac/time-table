@@ -1,4 +1,4 @@
-package by.bsuir.timetable.repository;
+package by.bsuir.timetable.domain.repository;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

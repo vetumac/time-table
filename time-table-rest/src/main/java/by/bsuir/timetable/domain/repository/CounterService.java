@@ -1,4 +1,4 @@
-package by.bsuir.timetable.repository;
+package by.bsuir.timetable.domain.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
