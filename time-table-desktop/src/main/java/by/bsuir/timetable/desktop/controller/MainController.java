@@ -1,8 +1,10 @@
 package by.bsuir.timetable.desktop.controller;
 
+import javafx.fxml.FXML;
 import javafx.geometry.Side;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
@@ -19,28 +21,37 @@ public class MainController {
     @Autowired
     private StationsController stationsController;
 
+    Group root = new Group();
+
+    @FXML
+    BorderPane borderPane;
+    final TabPane tabPane = new TabPane();
+
+    @FXML
+    private Tab stationsTab;
+
+    @FXML
+    private Tab routesTab = new Tab();
+    final Tab tab3 = new Tab();
+    final Tab tab4 = new Tab();
+    Button loginButton = new Button("Войти");
+
     public void init(Stage primaryStage) {
         primaryStage.setTitle("Проект 'Расписание поездов'");
         primaryStage.setMinWidth(MINIMUM_WINDOW_WIDTH);
         primaryStage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
-        Group root = new Group();
         primaryStage.setScene(new Scene(root));
-        BorderPane borderPane = new BorderPane();
-        final TabPane tabPane = new TabPane();
         tabPane.prefWidthProperty().bind(primaryStage.widthProperty());
         tabPane.setSide(Side.TOP);
         tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
-        final Tab stations = new Tab();
-        stations.setText("Станции");
-        stationsController.init(stations);
-        final Tab routes = new Tab();
-        routes.setText("Маршруты");
-        final Tab tab3 = new Tab();
+        stationsTab.setText("Станции");
+        stationsController.init(stationsTab);
+        routesTab.setText("Маршруты");
         tab3.setText("Tab 3");
-        final Tab tab4 = new Tab();
         tab4.setText("Tab 4");
-        tabPane.getTabs().addAll(stations, routes, tab3, tab4);
+        tabPane.getTabs().addAll(stationsTab, routesTab, tab3, tab4);
         borderPane.setCenter(tabPane);
+        borderPane.setTop(loginButton);
         root.getChildren().add(borderPane);
     }
 }
