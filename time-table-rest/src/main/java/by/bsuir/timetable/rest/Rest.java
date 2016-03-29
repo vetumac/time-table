@@ -1,4 +1,4 @@
-package by.bsuir.timetable;
+package by.bsuir.timetable.rest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

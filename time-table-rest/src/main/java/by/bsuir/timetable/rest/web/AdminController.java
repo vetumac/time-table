@@ -1,9 +1,9 @@
-package by.bsuir.timetable.web;
+package by.bsuir.timetable.rest.web;
 
-import by.bsuir.timetable.domain.Route;
-import by.bsuir.timetable.domain.Station;
-import by.bsuir.timetable.service.RouteService;
-import by.bsuir.timetable.service.StationService;
+import by.bsuir.timetable.rest.domain.Route;
+import by.bsuir.timetable.rest.domain.Station;
+import by.bsuir.timetable.rest.service.RouteService;
+import by.bsuir.timetable.rest.service.StationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

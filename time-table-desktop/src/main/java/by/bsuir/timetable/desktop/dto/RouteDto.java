@@ -1,19 +1,10 @@
-package by.bsuir.timetable.domain;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
+package by.bsuir.timetable.desktop.dto;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Map;
 
-@Document
-public class Route {
-    @Id
-    private String id;
-
-    @Indexed(unique = true)
+public class RouteDto {
     private Long code;
     private LocalTime departure;
     private LocalDate start;
@@ -24,10 +15,10 @@ public class Route {
     * */
     private Map<Long, Long> route;
 
-    public Route() {
+    public RouteDto() {
     }
 
-    public Route(Long code, LocalTime departure, LocalDate start, LocalDate end, Long period, Map<Long, Long> route) {
+    public RouteDto(Long code, LocalTime departure, LocalDate start, LocalDate end, Long period, Map<Long, Long> route) {
         this.code = code;
         this.departure = departure;
         this.end = end;
@@ -60,14 +51,6 @@ public class Route {
         this.end = end;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public Long getPeriod() {
         return period;
     }
@@ -95,11 +78,11 @@ public class Route {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Route)) return false;
+        if (!(o instanceof RouteDto)) return false;
 
-        Route route = (Route) o;
+        RouteDto routeDto = (RouteDto) o;
 
-        return code.equals(route.code);
+        return code.equals(routeDto.code);
 
     }
 

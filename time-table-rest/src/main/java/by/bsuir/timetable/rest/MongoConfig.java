@@ -1,4 +1,4 @@
-package by.bsuir.timetable.domain.repository;
+package by.bsuir.timetable.rest;
 
 import com.mongodb.MongoClient;
 import com.mongodb.WriteConcern;

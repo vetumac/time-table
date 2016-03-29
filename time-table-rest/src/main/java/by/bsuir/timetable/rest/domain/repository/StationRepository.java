@@ -1,6 +1,6 @@
-package by.bsuir.timetable.domain.repository;
+package by.bsuir.timetable.rest.domain.repository;
 
-import by.bsuir.timetable.domain.Station;
+import by.bsuir.timetable.rest.domain.Station;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

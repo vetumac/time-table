@@ -1,7 +1,7 @@
-package by.bsuir.timetable;
+package by.bsuir.timetable.rest;
 
-import by.bsuir.timetable.domain.Account;
-import by.bsuir.timetable.domain.repository.AccountRepository;
+import by.bsuir.timetable.rest.domain.Account;
+import by.bsuir.timetable.rest.domain.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

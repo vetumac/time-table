@@ -1,4 +1,4 @@
-package by.bsuir.timetable.domain;
+package by.bsuir.timetable.rest.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;

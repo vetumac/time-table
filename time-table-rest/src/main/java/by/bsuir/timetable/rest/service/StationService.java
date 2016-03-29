@@ -1,8 +1,7 @@
-package by.bsuir.timetable.service;
+package by.bsuir.timetable.rest.service;
 
-import by.bsuir.timetable.domain.Station;
-import by.bsuir.timetable.domain.repository.CounterService;
-import by.bsuir.timetable.domain.repository.StationRepository;
+import by.bsuir.timetable.rest.domain.Station;
+import by.bsuir.timetable.rest.domain.repository.StationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

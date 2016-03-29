@@ -1,4 +1,4 @@
-package by.bsuir.timetable;
+package by.bsuir.timetable.rest;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
