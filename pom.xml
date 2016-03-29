@@ -29,6 +29,7 @@
 
     <modules>
         <module>time-table-rest</module>
+        <module>time-table-desktop</module>
     </modules>
 
 </project>
