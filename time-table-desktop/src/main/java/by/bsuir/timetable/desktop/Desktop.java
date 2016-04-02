@@ -1,9 +1,10 @@
 package by.bsuir.timetable.desktop;
 
-import by.bsuir.timetable.desktop.controller.MainController;
-import javafx.application.Preloader;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Lazy;
 
@@ -12,14 +13,25 @@ import org.springframework.context.annotation.Lazy;
 public class Desktop extends AbstractJavaFxApplicationSupport {
 
     @Autowired
-    private MainController mainController;
+    @Qualifier("mainView")
+    private ConfigurationControllers.View view;
+
+    @Value("${window.title}")
+    private String windowTitle;
+
+    @Value("${window.width}")
+    private Double windowWidth;
+
+    @Value("${window.height}")
+    private Double windowHeight;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        notifyPreloader(new Preloader.StateChangeNotification(Preloader.StateChangeNotification.Type.BEFORE_START));
-
-        mainController.init(primaryStage);
+        primaryStage.setTitle(windowTitle);
+        primaryStage.setMinWidth(windowWidth);
+        primaryStage.setMinHeight(windowHeight);
+        primaryStage.setScene(new Scene(view.parent));
         primaryStage.show();
     }
 
