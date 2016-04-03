@@ -36,6 +36,7 @@ public class ConfigurationControllers {
     private View loadController(String url) throws IOException {
         try (InputStream fxmlStream = getClass().getClassLoader().getResourceAsStream(url)) {
             FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("fxml/"));
             return new View(loader.load(fxmlStream), loader.getController());
         }
     }
