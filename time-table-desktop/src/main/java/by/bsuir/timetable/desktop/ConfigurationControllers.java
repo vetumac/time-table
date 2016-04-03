@@ -1,7 +1,6 @@
 package by.bsuir.timetable.desktop;
 
 import by.bsuir.timetable.desktop.controller.MainController;
-import by.bsuir.timetable.desktop.controller.StationsController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import org.springframework.context.annotation.Bean;
@@ -13,25 +12,28 @@ import java.io.InputStream;
 @Configuration
 public class ConfigurationControllers {
 
-    @Bean
-    public MainController mainController() throws IOException {
-        return (MainController) getMainView().controller;
-    }
+    private View view;
 
     @Bean(name = "mainView")
     public View getMainView() throws IOException {
-        return loadController(MainController.VIEW);
+        view = loadController(MainController.VIEW);
+        return view;
     }
 
     @Bean
+    public MainController mainController() throws IOException {
+        return (MainController) view.controller;
+    }
+
+   /* @Bean
     public StationsController stationsController() throws IOException {
         return (StationsController) getStationsView().controller;
     }
 
-    @Bean(name = "stationsView")
+    //@Bean(name = "stationsView")
     public View getStationsView() throws IOException {
         return loadController(StationsController.VIEW);
-    }
+    }*/
 
     private View loadController(String url) throws IOException {
         try (InputStream fxmlStream = getClass().getClassLoader().getResourceAsStream(url)) {

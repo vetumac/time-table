@@ -1,45 +1,70 @@
 package by.bsuir.timetable.desktop.controller;
 
+import by.bsuir.timetable.desktop.dto.StationDto;
+import by.bsuir.timetable.desktop.service.StationService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.annotation.PostConstruct;
+import java.util.List;
+
 public class StationsController {
 
-    /*private TableView stationsView = new TableView();
-    private Button searchStationButton = new Button("Поиск");
-    private Label stationLabel = new Label("Станция");
-    private TextField searchStationTextField = new TextField();
-    private HBox searchHBox = new HBox(3);
-    private TableColumn codeCol = new TableColumn();
-    private TableColumn nameCol = new TableColumn();
-    private TableColumn zoneCol = new TableColumn();
-    private VBox vbox = new VBox(2);
-    final private ObservableList<StationDto> stationObservableList = FXCollections.observableArrayList();
-*/
-    public static final String VIEW = "fxml/stations.fxml";
-
-
-    /*@Autowired
+    @Autowired
     private StationService stationService;
 
-    public void init(Tab stationsTab) {
+    public static final String VIEW = "fxml/stations.fxml";
+
+    @FXML
+    private TableView stationsView;
+
+    @FXML
+    private Button searchStationButton;
+
+    @FXML
+    private TextField searchStationTextField;
+
+    @FXML
+    private TableColumn codeCol;
+
+    @FXML
+    private TableColumn nameCol;
+
+    @FXML
+    private TableColumn zoneCol;
+
+    final private ObservableList<StationDto> stationObservableList = FXCollections.observableArrayList();
+
+    public StationsController() {
+        System.out.println("Constructor");
+    }
+
+    @FXML
+    public void initialize() {
         searchStationButton.setOnAction(event -> {
+            System.out.println("Initialize");
             List<StationDto> stations = stationService.findStationByNameLike(searchStationTextField.getText());
             stationObservableList.addAll(stations);
         });
 
-        searchHBox.getChildren().addAll(stationLabel, searchStationTextField, searchStationButton);
-
-        codeCol.setText("Код");
         codeCol.setCellValueFactory(new PropertyValueFactory("code"));
-        nameCol.setText("Название");
-        nameCol.setMinWidth(200);
         nameCol.setCellValueFactory(new PropertyValueFactory("name"));
-        zoneCol.setText("Часовой пояс");
-        zoneCol.setMinWidth(150);
         zoneCol.setCellValueFactory(new PropertyValueFactory("zone"));
 
-        stationsView.getColumns().addAll(codeCol, nameCol, zoneCol);
         stationsView.setItems(stationObservableList);
 
-        vbox.getChildren().addAll(searchHBox, stationsView);
-        stationsTab.setContent(vbox);
-    }*/
+    }
+
+    @PostConstruct
+    public void post() {
+        System.out.println("PostConstuct");
+        System.out.println(stationService);
+    }
 }
