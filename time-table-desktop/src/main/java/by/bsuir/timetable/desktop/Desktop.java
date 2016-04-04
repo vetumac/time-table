@@ -3,7 +3,6 @@ package by.bsuir.timetable.desktop;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Lazy;
@@ -13,8 +12,7 @@ import org.springframework.context.annotation.Lazy;
 public class Desktop extends AbstractJavaFxApplicationSupport {
 
     @Autowired
-    @Qualifier("mainView")
-    private ConfigurationControllers.View view;
+    private SpringFxmlLoader fxmlLoader;
 
     @Value("${window.title}")
     private String windowTitle;
@@ -28,6 +26,7 @@ public class Desktop extends AbstractJavaFxApplicationSupport {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        SpringFxmlLoader.View view = fxmlLoader.load("fxml/main.fxml");
         primaryStage.setTitle(windowTitle);
         primaryStage.setMinWidth(windowWidth);
         primaryStage.setMinHeight(windowHeight);

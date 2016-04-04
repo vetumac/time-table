@@ -11,16 +11,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
+@Component
 public class StationsController {
 
     @Autowired
     private StationService stationService;
-
-    public static final String VIEW = "fxml/stations.fxml";
 
     @FXML
     private TableView stationsView;
@@ -42,10 +41,6 @@ public class StationsController {
 
     final private ObservableList<StationDto> stationObservableList = FXCollections.observableArrayList();
 
-    public StationsController() {
-        System.out.println("Constructor");
-    }
-
     @FXML
     public void initialize() {
         searchStationButton.setOnAction(event -> {
@@ -60,11 +55,5 @@ public class StationsController {
 
         stationsView.setItems(stationObservableList);
 
-    }
-
-    @PostConstruct
-    public void post() {
-        System.out.println("PostConstuct");
-        System.out.println(stationService);
     }
 }
