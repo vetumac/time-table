@@ -44,7 +44,6 @@ public class StationsController {
     @FXML
     public void initialize() {
         searchStationButton.setOnAction(event -> {
-            System.out.println("Initialize");
             List<StationDto> stations = stationService.findStationByNameLike(searchStationTextField.getText());
             stationObservableList.addAll(stations);
         });

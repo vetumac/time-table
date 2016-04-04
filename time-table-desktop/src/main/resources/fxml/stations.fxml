@@ -13,7 +13,7 @@
                 <Button fx:id="searchStationButton" mnemonicParsing="false" text="Поиск"/>
             </children>
         </HBox>
-        <TableView prefHeight="200.0" prefWidth="200.0" fx:id="stationsView">
+        <TableView fx:id="stationsView">
             <columns>
                 <TableColumn prefWidth="75.0" text="Код" fx:id="codeCol"/>
                 <TableColumn prefWidth="200.0" text="Назване" fx:id="nameCol"/>

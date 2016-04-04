@@ -1,17 +1,26 @@
 package by.bsuir.timetable.desktop.controller;
 
-import by.bsuir.timetable.desktop.service.StationService;
 import javafx.fxml.FXML;
-import org.springframework.beans.factory.annotation.Autowired;
+import javafx.scene.control.Hyperlink;
+import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MainController {
 
-    @Autowired
-    private StationService stationService;
+    private Stage loginStage;
+
+    @FXML
+    private Hyperlink login;
 
     @FXML
     public void initialize() {
+        login.setOnAction(event -> {
+            loginStage.show();
+        });
+    }
+
+    public void setLoginStage(Stage loginStage) {
+        this.loginStage = loginStage;
     }
 }
