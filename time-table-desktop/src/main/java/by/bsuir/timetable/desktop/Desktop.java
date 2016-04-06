@@ -3,26 +3,10 @@ package by.bsuir.timetable.desktop;
 import by.bsuir.timetable.desktop.controller.MainController;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.ComponentScan;
 
-@Lazy
-@SpringBootApplication
+@ComponentScan
 public class Desktop extends AbstractJavaFxApplicationSupport {
-
-    @Autowired
-    private SpringFxmlLoader fxmlLoader;
-
-    @Value("${window.title}")
-    private String windowTitle;
-
-    @Value("${window.width}")
-    private Double windowWidth;
-
-    @Value("${window.height}")
-    private Double windowHeight;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -32,9 +16,9 @@ public class Desktop extends AbstractJavaFxApplicationSupport {
         loginStage.setTitle("Логин");
         loginStage.setScene(new Scene(loginView.parent));
         ((MainController) mainView.controller).setLoginStage(loginStage);
-        primaryStage.setTitle(windowTitle);
-        primaryStage.setMinWidth(windowWidth);
-        primaryStage.setMinHeight(windowHeight);
+        primaryStage.setTitle("Расписане поездов");
+        primaryStage.setMinWidth(800);
+        primaryStage.setMinHeight(600);
         primaryStage.setScene(new Scene(mainView.parent));
         primaryStage.setOnCloseRequest(event -> loginStage.close());
         primaryStage.show();
