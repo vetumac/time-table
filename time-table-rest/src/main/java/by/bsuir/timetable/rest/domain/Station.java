@@ -20,8 +20,7 @@ public class Station {
     public Station() {
     }
 
-    public Station(Long code, String name, String zone) {
-        this.code = code;
+    public Station(String name, String zone) {
         this.name = name;
         this.zone = zone;
     }

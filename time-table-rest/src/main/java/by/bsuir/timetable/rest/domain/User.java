@@ -3,9 +3,14 @@ package by.bsuir.timetable.rest.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.Collections;
 
 @Document
-public class Account {
+public class User implements UserDetails {
 
     @Id
     private String id;
@@ -14,11 +19,10 @@ public class Account {
     private String username;
     private String password;
 
-    public Account() {
-
+    public User() {
     }
 
-    public Account(String password, String username) {
+    public User(String password, String username) {
         this.password = password;
         this.username = username;
     }
@@ -29,6 +33,31 @@ public class Account {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singleton((GrantedAuthority) () -> "USER");
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
     public String getPassword() {

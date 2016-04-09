@@ -1,9 +1,11 @@
 package by.bsuir.timetable.desktop.service;
 
+import by.bsuir.timetable.desktop.RestTemplateFactory;
 import by.bsuir.timetable.desktop.dto.StationDto;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -19,8 +21,11 @@ public class StationService {
     @Value("${host}")
     private String host;
 
+    @Autowired
+    private RestTemplateFactory restTemplateFactory;
+
     public List<StationDto> findStationByNameLike(String name) {
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = restTemplateFactory.getObject();
         ResponseEntity<StationDto[]> responseEntity = restTemplate.getForEntity(host + "/station?name=" + name, StationDto[].class);
         StationDto[] stations = responseEntity.getBody();
 

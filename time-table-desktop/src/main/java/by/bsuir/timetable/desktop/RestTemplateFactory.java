@@ -3,11 +3,19 @@ package by.bsuir.timetable.desktop;
 import org.apache.http.HttpHost;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
 public class RestTemplateFactory implements FactoryBean<RestTemplate>, InitializingBean {
+
+    @Value("${host}")
+    String hostName;
+
+    @Value("${port}")
+    int hostPort;
+
     private RestTemplate restTemplate;
 
     @Override
@@ -27,7 +35,7 @@ public class RestTemplateFactory implements FactoryBean<RestTemplate>, Initializ
 
     @Override
     public void afterPropertiesSet() {
-        HttpHost host = new HttpHost("localhost", 8080, "http");
+        HttpHost host = new HttpHost(hostName, hostPort, "http");
         restTemplate = new RestTemplate(
                 new HttpComponentsClientHttpRequestFactoryBasicAuth(host));
     }
