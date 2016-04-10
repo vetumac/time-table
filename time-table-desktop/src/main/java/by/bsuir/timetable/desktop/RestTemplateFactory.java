@@ -4,10 +4,9 @@ import org.apache.http.HttpHost;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-@Component
+//@Component
 public class RestTemplateFactory implements FactoryBean<RestTemplate>, InitializingBean {
 
     @Value("${host}")
