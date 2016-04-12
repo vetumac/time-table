@@ -1,10 +1,11 @@
 package by.bsuir.timetable.desktop;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+
+import java.net.URI;
 
 @Component
 public class RestClient {
@@ -28,8 +29,8 @@ public class RestClient {
         return !template.postForLocation(loginUrl(), form).toString().matches("(.*)error(.*)");
     }
 
-    public ResponseEntity<String> logout() {
-        return this.template.getForEntity(logoutUrl(), String.class);
+    public void logout() {
+        template.postForObject(URI.create(logoutUrl()), null, Object.class);
     }
 
     public StatefullRestTemplate template() {

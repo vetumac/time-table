@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="234.0"
@@ -9,8 +8,10 @@
     <children>
         <Label layoutX="59.0" layoutY="57.0" text="Логин"/>
         <Label layoutX="51.0" layoutY="87.0" text="Пароль"/>
-        <TextField layoutX="122.0" layoutY="52.0" fx:id="loginTextField"/>
-        <TextField layoutX="122.0" layoutY="82.0" fx:id="passwordTextField"/>
-        <Button layoutX="220.0" layoutY="152.0" mnemonicParsing="false" text="Логин" fx:id="loginButton"/>
+        <TextField fx:id="loginTextField" layoutX="122.0" layoutY="52.0"/>
+        <TextField fx:id="passwordTextField" layoutX="122.0" layoutY="82.0"/>
+        <Button fx:id="loginButton" layoutX="220.0" layoutY="152.0" mnemonicParsing="false" text="Логин"/>
+        <Label layoutX="32.0" layoutY="154.0" text="Не верный пароль" textFill="#e40e0e" fx:id="errorLoginLabel"
+               visible="false"/>
     </children>
 </AnchorPane>

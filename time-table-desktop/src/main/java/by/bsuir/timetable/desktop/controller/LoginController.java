@@ -3,12 +3,16 @@ package by.bsuir.timetable.desktop.controller;
 import by.bsuir.timetable.desktop.service.LoginService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class LoginController {
+
+    @FXML
+    private Label errorLoginLabel;
 
     @FXML
     private TextField loginTextField;
@@ -26,8 +30,9 @@ public class LoginController {
     void initialize() {
         loginButton.setOnAction(event ->
         {
-            //loginButton.getScene().getWindow().hide();
-            loginButton.setText(String.valueOf(loginService.login(loginTextField.getText(), passwordTextField.getText())));
+            if (loginService.login(loginTextField.getText(), passwordTextField.getText()))
+                loginButton.getScene().getWindow().hide();
+            else errorLoginLabel.setVisible(true);
 
         });
     }
