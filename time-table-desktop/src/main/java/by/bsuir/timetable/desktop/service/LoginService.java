@@ -8,9 +8,19 @@ import org.springframework.stereotype.Component;
 public class LoginService {
 
     @Autowired
+    private LoggedState loggedState;
+
+    @Autowired
     private RestClient restClient;
 
     public boolean login(String username, String password) {
-        return restClient.login(username, password);
+        boolean loggedIn = restClient.login(username, password);
+        loggedState.set(loggedIn);
+        return loggedIn;
+    }
+
+    public void logout() {
+        restClient.logout();
+        loggedState.set(false);
     }
 }
