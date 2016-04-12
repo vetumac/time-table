@@ -31,14 +31,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
-                .permitAll()
+                .loginPage("/login").permitAll()
                 .and()
-                .logout()
-                .permitAll()
+                .logout().permitAll()
                 .and()
-                .csrf()
-                .disable();
+                .csrf().disable();
                 /*.anyRequest().permitAll().and().*/
 /*                .anyRequest().fullyAuthenticated().and().
                 httpBasic().and().*/
