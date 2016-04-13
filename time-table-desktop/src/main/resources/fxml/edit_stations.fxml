@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="310.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="by.bsuir.timetable.desktop.controller.EditStationController">
+    <children>
+        <Label layoutX="77.0" layoutY="38.0" text="Код"/>
+        <Label layoutX="38.0" layoutY="71.0" text="Название"/>
+        <Label layoutX="6.0" layoutY="104.0" text="Часовой пояс"/>
+        <TextField layoutX="120.0" layoutY="33.0" fx:id="codeField"/>
+        <TextField layoutX="120.0" layoutY="66.0" fx:id="nameField"/>
+        <TextField layoutX="120.0" layoutY="99.0" fx:id="zoneField"/>
+        <Button layoutX="291.0" layoutY="161.0" mnemonicParsing="false" text="Сохранть" fx:id="saveButton"/>
+    </children>
+</AnchorPane>

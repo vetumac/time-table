@@ -8,6 +8,5 @@ import java.util.List;
 public interface StationRepository extends MongoRepository<Station, String> {
     List<Station> findByNameLike(String name);
     Station findByCode(Long code);
-
     List<Station> findByCodeIn(List<Long> codes);
 }

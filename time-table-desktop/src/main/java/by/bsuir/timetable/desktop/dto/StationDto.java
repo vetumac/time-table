@@ -9,8 +9,7 @@ public class StationDto {
     public StationDto() {
     }
 
-    public StationDto(Long code, String name, String zone) {
-        this.code = code;
+    public StationDto(String name, String zone) {
         this.name = name;
         this.zone = zone;
     }
