@@ -1,7 +1,7 @@
 package by.bsuir.timetable.rest.service;
 
+import by.bsuir.timetable.rest.dao.StationRepository;
 import by.bsuir.timetable.rest.domain.Station;
-import by.bsuir.timetable.rest.domain.repository.StationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

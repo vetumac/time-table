@@ -1,4 +1,4 @@
-package by.bsuir.timetable.rest.domain.repository;
+package by.bsuir.timetable.rest.dao;
 
 import by.bsuir.timetable.rest.domain.User;
 import org.springframework.data.mongodb.repository.MongoRepository;

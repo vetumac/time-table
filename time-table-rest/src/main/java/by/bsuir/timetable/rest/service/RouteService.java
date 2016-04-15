@@ -1,7 +1,7 @@
 package by.bsuir.timetable.rest.service;
 
+import by.bsuir.timetable.rest.dao.RouteRepository;
 import by.bsuir.timetable.rest.domain.Route;
-import by.bsuir.timetable.rest.domain.repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

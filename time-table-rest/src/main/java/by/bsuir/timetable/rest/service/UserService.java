@@ -1,7 +1,7 @@
 package by.bsuir.timetable.rest.service;
 
+import by.bsuir.timetable.rest.dao.UserRepository;
 import by.bsuir.timetable.rest.domain.User;
-import by.bsuir.timetable.rest.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
