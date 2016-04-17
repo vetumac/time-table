@@ -24,9 +24,9 @@ public class StationService {
         return stationRepository.findByNameLike(name);
     }
 
-    public Long addStation(Station station) {
-        station.setCode(counterService.getNextSequence("station"));
-        return stationRepository.save(station).getCode();
+    public Long saveStation(Station station) {
+        if (station.getCode() == null) station.setCode(counterService.getNextSequence("station"));
+        return stationRepository.saveStation(station).getCode();
     }
 
     public List<Station> findByCodeIn(List<Long> codes) {

@@ -29,13 +29,13 @@ public class EditStationController {
     @FXML
     public void initialize() {
         saveButton.setOnAction(event -> {
+            Long code;
             try {
-                Long.parseLong(codeField.getText());
+                code = Long.parseLong(codeField.getText());
             } catch (NumberFormatException e) {
-                codeField.setText(stationService.addStation(new StationDto(nameField.getText(), zoneField.getText())).toString());
+                code = null;
             }
+            codeField.setText(stationService.saveStation(new StationDto(code, nameField.getText(), zoneField.getText())).toString());
         });
     }
-
-
 }

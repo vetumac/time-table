@@ -31,7 +31,7 @@ public class AdminController {
 
     @RequestMapping(value = "/station", method = RequestMethod.POST)
     Long addStation(@RequestBody Station station) {
-        return stationService.addStation(station);
+        return stationService.saveStation(station);
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)

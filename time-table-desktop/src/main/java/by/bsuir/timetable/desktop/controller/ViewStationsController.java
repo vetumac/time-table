@@ -45,6 +45,7 @@ public class ViewStationsController {
     public void initialize() {
         searchStationButton.setOnAction(event -> {
             List<StationDto> stations = stationService.findStationByNameLike(searchStationTextField.getText());
+            stationObservableList.clear();
             stationObservableList.addAll(stations);
         });
 

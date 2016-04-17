@@ -23,7 +23,7 @@ public class StationService {
         return restClient.template().getForObject(restClient.apiUrl("/station/" + code.toString()), StationDto.class);
     }
 
-    public Long addStation(StationDto stationDto) {
+    public Long saveStation(StationDto stationDto) {
         return restClient.template().postForObject(restClient.apiUrl("/station"), stationDto, Long.class);
     }
 }

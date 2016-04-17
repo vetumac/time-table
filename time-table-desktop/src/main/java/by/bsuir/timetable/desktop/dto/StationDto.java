@@ -14,6 +14,11 @@ public class StationDto {
         this.zone = zone;
     }
 
+    public StationDto(Long code, String name, String zone) {
+        this(name, zone);
+        this.code = code;
+    }
+
     public Long getCode() {
         return code;
     }
