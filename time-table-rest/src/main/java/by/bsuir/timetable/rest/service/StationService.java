@@ -32,4 +32,8 @@ public class StationService {
     public List<Station> findByCodeIn(List<Long> codes) {
         return stationRepository.findByCodeIn(codes);
     }
+
+    public Station getStationTimeTable(Long code, String fromDateTime, String toDateTime, String zone) {
+        return null;
+    }
 }

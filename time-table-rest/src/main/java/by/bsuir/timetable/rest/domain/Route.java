@@ -18,6 +18,9 @@ public class Route {
     private LocalTime departure;
     private LocalDate start;
     private LocalDate end;
+    /*
+    * Period in days between rout departures
+    * */
     private Long period;
     /*
     * Time interval between start end current station in minutes and station id.
