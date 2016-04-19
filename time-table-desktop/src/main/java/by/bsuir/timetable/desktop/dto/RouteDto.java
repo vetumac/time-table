@@ -1,14 +1,32 @@
 package by.bsuir.timetable.desktop.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Map;
 
 public class RouteDto {
+
     private Long code;
+
+    @JsonSerialize(using = LocalTimeSerializer.class)
+    @JsonDeserialize(using = LocalTimeDeserializer.class)
     private LocalTime departure;
+
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate start;
+
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate end;
+
     private Long period;
     /*
     * Time interval between start end current station in minutes and station id.

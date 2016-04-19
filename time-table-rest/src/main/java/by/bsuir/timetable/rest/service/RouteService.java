@@ -18,8 +18,8 @@ public class RouteService {
         return routeRepository.findByCode(code);
     }
 
-    public Long addRoute(Route route) {
-        route.setCode(counterService.getNextSequence("route"));
+    public Long saveRoute(Route route) {
+        if (route.getCode() == null) route.setCode(counterService.getNextSequence("route"));
         return routeRepository.save(route).getCode();
     }
 

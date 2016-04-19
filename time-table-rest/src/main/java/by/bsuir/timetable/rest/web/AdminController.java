@@ -25,12 +25,12 @@ public class AdminController {
     private UserService userService;
 
     @RequestMapping(value = "/route", method = RequestMethod.POST)
-    Long addRoute(@RequestBody Route route) {
-        return routeService.addRoute(route);
+    Long saveRoute(@RequestBody Route route) {
+        return routeService.saveRoute(route);
     }
 
     @RequestMapping(value = "/station", method = RequestMethod.POST)
-    Long addStation(@RequestBody Station station) {
+    Long saveStation(@RequestBody Station station) {
         return stationService.saveStation(station);
     }
 

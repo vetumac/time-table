@@ -24,6 +24,11 @@
                         <fx:include source="edit_stations.fxml"/>
                     </content>
                 </Tab>
+                <Tab text="Изменение маршрутов" disable="true" fx:id="editRouteTab">
+                    <content>
+                        <fx:include source="edit_routs.fxml"/>
+                    </content>
+                </Tab>
             </tabs>
         </TabPane>
         <Hyperlink layoutX="665.0" layoutY="2.0" text="Вход" fx:id="login"/>

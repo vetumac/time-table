@@ -30,6 +30,9 @@ public class MainController {
     private Tab editStationTab;
 
     @FXML
+    private Tab editRouteTab;
+
+    @FXML
     public void initialize() {
         login.setOnAction(event -> loginStage.show());
         logout.setOnAction(event -> loginService.logout());
@@ -37,6 +40,7 @@ public class MainController {
             login.setVisible(!newValue);
             logout.setVisible(newValue);
             editStationTab.setDisable(!newValue);
+            editRouteTab.setDisable(!newValue);
         });
     }
 

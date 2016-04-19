@@ -22,7 +22,7 @@ public class ViewStationsController {
     private StationService stationService;
 
     @FXML
-    private TableView stationsView;
+    private TableView<StationDto> stationsView;
 
     @FXML
     private Button searchStationButton;

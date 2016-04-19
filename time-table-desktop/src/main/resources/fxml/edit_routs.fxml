@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="413.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="by.bsuir.timetable.desktop.controller.EditRoutController">
+    <children>
+        <Label layoutX="191.0" layoutY="38.0" text="Код"/>
+        <Label layoutX="77.0" layoutY="71.0" text="Время отправления"/>
+        <Label layoutX="94.0" layoutY="104.0" text="Дата начала рейса"/>
+        <TextField fx:id="codeField" layoutX="240.0" layoutY="33.0"/>
+        <TextField fx:id="departureField" layoutX="240.0" layoutY="66.0"/>
+        <TextField fx:id="startField" layoutX="240.0" layoutY="99.0"/>
+        <Button fx:id="saveButton" layoutX="433.0" layoutY="333.0" mnemonicParsing="false" text="Сохранть"/>
+        <Label layoutX="68.0" layoutY="139.0" text="Дата окончания рейса"/>
+        <TextField layoutX="240.0" layoutY="134.0" fx:id="endField"/>
+        <Label layoutX="116.0" layoutY="176.0" text="Перод движеня"/>
+        <TextField layoutX="240.0" layoutY="171.0" fx:id="periodField"/>
+        <TableView layoutX="71.0" layoutY="207.0" prefHeight="200.0" prefWidth="200.0" fx:id="routeTale"
+                   editable="true">
+            <columns>
+                <TableColumn prefWidth="75.0" text="Время в пути" editable="true"/>
+                <TableColumn prefWidth="75.0" text="Код станции" editable="true"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
