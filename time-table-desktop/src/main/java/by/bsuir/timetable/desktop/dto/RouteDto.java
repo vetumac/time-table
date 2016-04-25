@@ -9,9 +9,11 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Map;
+import java.util.List;
 
 public class RouteDto {
+
+    private String id;
 
     private Long code;
 
@@ -28,25 +30,31 @@ public class RouteDto {
     private LocalDate end;
 
     private Long period;
-    /*
-    * Time interval between start end current station in minutes and station id.
-    * */
-    private Map<Long, Long> route;
+
+    private List<PointDto> points;
 
     public RouteDto() {
     }
 
-    public RouteDto(Long code, LocalTime departure, LocalDate start, LocalDate end, Long period, Map<Long, Long> route) {
+    public RouteDto(Long code, LocalTime departure, LocalDate start, LocalDate end, Long period, List<PointDto> points) {
         this.code = code;
         this.departure = departure;
         this.end = end;
         this.period = period;
-        this.route = route;
+        this.points = points;
         this.start = start;
     }
 
     public Long getCode() {
         return code;
+    }
+
+    public List<PointDto> getPoints() {
+        return points;
+    }
+
+    public void setPoints(List<PointDto> points) {
+        this.points = points;
     }
 
     public void setCode(Long code) {
@@ -69,20 +77,20 @@ public class RouteDto {
         this.end = end;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public Long getPeriod() {
         return period;
     }
 
     public void setPeriod(Long period) {
         this.period = period;
-    }
-
-    public Map<Long, Long> getRoute() {
-        return route;
-    }
-
-    public void setRoute(Map<Long, Long> route) {
-        this.route = route;
     }
 
     public LocalDate getStart() {
@@ -98,9 +106,9 @@ public class RouteDto {
         if (this == o) return true;
         if (!(o instanceof RouteDto)) return false;
 
-        RouteDto routeDto = (RouteDto) o;
+        RouteDto route = (RouteDto) o;
 
-        return code.equals(routeDto.code);
+        return code.equals(route.code);
 
     }
 

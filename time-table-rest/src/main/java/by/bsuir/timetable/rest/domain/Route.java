@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Map;
+import java.util.List;
 
 @Document
 public class Route {
@@ -35,25 +35,31 @@ public class Route {
     private LocalDate end;
 
     private Long period;
-    /*
-    * Time interval between start end current station in minutes and station id.
-    * */
-    private Map<Long, Long> route;
+
+    private List<Point> points;
 
     public Route() {
     }
 
-    public Route(Long code, LocalTime departure, LocalDate start, LocalDate end, Long period, Map<Long, Long> route) {
+    public Route(Long code, LocalTime departure, LocalDate start, LocalDate end, Long period, List<Point> points) {
         this.code = code;
         this.departure = departure;
         this.end = end;
         this.period = period;
-        this.route = route;
+        this.points = points;
         this.start = start;
     }
 
     public Long getCode() {
         return code;
+    }
+
+    public List<Point> getPoints() {
+        return points;
+    }
+
+    public void setPoints(List<Point> points) {
+        this.points = points;
     }
 
     public void setCode(Long code) {
@@ -90,14 +96,6 @@ public class Route {
 
     public void setPeriod(Long period) {
         this.period = period;
-    }
-
-    public Map<Long, Long> getRoute() {
-        return route;
-    }
-
-    public void setRoute(Map<Long, Long> route) {
-        this.route = route;
     }
 
     public LocalDate getStart() {

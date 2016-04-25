@@ -15,4 +15,8 @@ public class RouteService {
         return restClient.template().postForObject(restClient.apiUrl("/route"), routeDto, Long.class);
     }
 
+    public RouteDto findByCode(Long code) {
+        return restClient.template().getForObject(restClient.apiUrl("/route/" + code.toString()), RouteDto.class);
+    }
+
 }

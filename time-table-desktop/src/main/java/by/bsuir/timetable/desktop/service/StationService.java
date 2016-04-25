@@ -14,7 +14,7 @@ public class StationService {
     @Autowired
     private RestClient restClient;
 
-    public List<StationDto> findStationByNameLike(String name) {
+    public List<StationDto> findByNameLike(String name) {
         StationDto[] stations = restClient.template().getForObject(restClient.apiUrl("/station?name=" + name), StationDto[].class);
         return Arrays.asList(stations);
     }

@@ -2,26 +2,32 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane prefHeight="413.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane prefHeight="434.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="by.bsuir.timetable.desktop.controller.EditRoutController">
     <children>
-        <Label layoutX="191.0" layoutY="38.0" text="Код"/>
-        <Label layoutX="77.0" layoutY="71.0" text="Время отправления"/>
-        <Label layoutX="94.0" layoutY="104.0" text="Дата начала рейса"/>
-        <TextField fx:id="codeField" layoutX="240.0" layoutY="33.0"/>
-        <TextField fx:id="departureField" layoutX="240.0" layoutY="66.0"/>
-        <TextField fx:id="startField" layoutX="240.0" layoutY="99.0"/>
-        <Button fx:id="saveButton" layoutX="433.0" layoutY="333.0" mnemonicParsing="false" text="Сохранть"/>
-        <Label layoutX="68.0" layoutY="139.0" text="Дата окончания рейса"/>
-        <TextField layoutX="240.0" layoutY="134.0" fx:id="endField"/>
-        <Label layoutX="116.0" layoutY="176.0" text="Перод движеня"/>
-        <TextField layoutX="240.0" layoutY="171.0" fx:id="periodField"/>
-        <TableView layoutX="71.0" layoutY="207.0" prefHeight="200.0" prefWidth="200.0" fx:id="routeTale"
-                   editable="true">
+        <Label layoutX="190.0" layoutY="19.0" text="Код"/>
+        <Label layoutX="76.0" layoutY="52.0" text="Время отправления"/>
+        <Label layoutX="93.0" layoutY="85.0" text="Дата начала рейса"/>
+        <TextField fx:id="codeField" layoutX="239.0" layoutY="14.0" prefHeight="26.0" prefWidth="93.0"/>
+        <TextField fx:id="departureField" layoutX="239.0" layoutY="47.0"/>
+        <TextField fx:id="startField" layoutX="239.0" layoutY="80.0"/>
+        <Button fx:id="saveButton" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" text="Сохранть"/>
+        <Label layoutX="67.0" layoutY="120.0" text="Дата окончания рейса"/>
+        <TextField fx:id="endField" layoutX="239.0" layoutY="115.0"/>
+        <Label layoutX="115.0" layoutY="157.0" text="Перод движеня"/>
+        <TextField fx:id="periodField" layoutX="239.0" layoutY="152.0"/>
+        <TableView fx:id="routeTale" editable="true" layoutX="24.0" layoutY="186.0" prefHeight="200.0"
+                   prefWidth="386.0">
             <columns>
-                <TableColumn prefWidth="75.0" text="Время в пути" editable="true"/>
-                <TableColumn prefWidth="75.0" text="Код станции" editable="true"/>
+                <TableColumn fx:id="offsetColumn" editable="true" prefWidth="119.0" text="Время в пути"/>
+                <TableColumn fx:id="stationColumn" editable="true" prefWidth="136.0" text="Код станции"/>
+                <TableColumn fx:id="stayColumn" editable="true" prefWidth="130.0" text="Стоянка"/>
             </columns>
         </TableView>
+        <Button fx:id="addPointButton" layoutX="434.0" layoutY="394.0" mnemonicParsing="false" text="Добавить"/>
+        <TextField fx:id="newOffsetTextField" layoutX="24.0" layoutY="394.0" prefHeight="26.0" prefWidth="109.0"/>
+        <TextField fx:id="newStationTextField" layoutX="152.0" layoutY="394.0" prefHeight="26.0" prefWidth="123.0"/>
+        <TextField fx:id="newStayTextField" layoutX="291.0" layoutY="394.0" prefHeight="26.0" prefWidth="109.0"/>
+        <Button layoutX="346.0" layoutY="14.0" mnemonicParsing="false" text="Найти" fx:id="findRouteButton"/>
     </children>
 </AnchorPane>

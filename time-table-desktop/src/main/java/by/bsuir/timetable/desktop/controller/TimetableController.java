@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class ViewStationsController {
+public class TimetableController {
 
     @Autowired
     private StationService stationService;
@@ -26,6 +26,12 @@ public class ViewStationsController {
 
     @FXML
     private Button searchStationButton;
+
+    @FXML
+    private TextField fromTextField;
+
+    @FXML
+    private TextField toTextField;
 
     @FXML
     private TextField searchStationTextField;
@@ -44,7 +50,7 @@ public class ViewStationsController {
     @FXML
     public void initialize() {
         searchStationButton.setOnAction(event -> {
-            List<StationDto> stations = stationService.findStationByNameLike(searchStationTextField.getText());
+            List<StationDto> stations = stationService.findByNameLike(searchStationTextField.getText());
             stationObservableList.clear();
             stationObservableList.addAll(stations);
         });

@@ -7,6 +7,7 @@ import by.bsuir.timetable.rest.service.StationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,5 +39,21 @@ public class HomeController {
     @RequestMapping(value = "/route/{code}", method = RequestMethod.GET)
     Route getRouteByRoute(@PathVariable(value = "code") Long code) {
         return routeService.findByCode(code);
+    }
+
+    @RequestMapping(value = "/timetable/{code}", method = RequestMethod.GET)
+    List<Route> findRouteByStation(
+
+            @PathVariable(value = "code")
+            Long code,
+
+            @RequestParam(value = "from")
+            LocalDate from,
+
+            @RequestParam(value = "to")
+            LocalDate to) {
+
+        return routeService.findByStationAndFromAndTo(code, from, to);
+
     }
 }
