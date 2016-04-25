@@ -1,24 +1,24 @@
-package by.bsuir.timetable.desktop.dto;
+package by.bsuir.timetable.rest.domain;
 
 import java.util.List;
 
-public class TimetableDto {
+public class Timetable {
 
-    private StationDto stationDto;
+    private Station station;
 
     private List<TimetablePoint> timetablePointList;
 
-    public TimetableDto(StationDto stationDto, List<TimetablePoint> timetablePointList) {
-        this.stationDto = stationDto;
+    public Timetable(Station station, List<TimetablePoint> timetablePointList) {
+        this.station = station;
         this.timetablePointList = timetablePointList;
     }
 
-    public StationDto getStationDto() {
-        return stationDto;
+    public Station getStation() {
+        return station;
     }
 
-    public void setStationDto(StationDto stationDto) {
-        this.stationDto = stationDto;
+    public void setStation(Station station) {
+        this.station = station;
     }
 
     public List<TimetablePoint> getTimetablePointList() {

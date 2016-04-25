@@ -1,4 +1,4 @@
-package by.bsuir.timetable.rest;
+package by.bsuir.timetable.rest.converters;
 
 import org.springframework.core.convert.converter.Converter;
 

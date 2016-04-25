@@ -1,7 +1,7 @@
 package by.bsuir.timetable.desktop.service;
 
+import by.bsuir.timetable.api.dto.StationDto;
 import by.bsuir.timetable.desktop.RestClient;
-import by.bsuir.timetable.desktop.dto.StationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

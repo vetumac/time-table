@@ -1,6 +1,6 @@
 package by.bsuir.timetable.desktop.controller;
 
-import by.bsuir.timetable.desktop.dto.StationDto;
+import by.bsuir.timetable.api.dto.StationDto;
 import by.bsuir.timetable.desktop.service.StationService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -1,4 +1,4 @@
-package by.bsuir.timetable.desktop.dto;
+package by.bsuir.timetable.api.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

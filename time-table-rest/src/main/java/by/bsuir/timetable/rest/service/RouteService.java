@@ -2,6 +2,7 @@ package by.bsuir.timetable.rest.service;
 
 import by.bsuir.timetable.rest.dao.RouteRepository;
 import by.bsuir.timetable.rest.domain.Route;
+import by.bsuir.timetable.rest.domain.Timetable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -30,11 +31,12 @@ public class RouteService {
         return routeRepository.saveRoute(route).getCode();
     }
 
-    public List<Route> findByStationAndFromAndTo(Long code, LocalDate from, LocalDate to) {
-        return routeRepository.findByStationAndFromAndTo(
+    public Timetable findByStationAndFromAndTo(Long code, LocalDate from, LocalDate to) {
+        List<Route> routes = routeRepository.findByStationAndFromAndTo(
                 code,
                 from == null ? LocalDate.now() : from,
                 to == null ? LocalDate.now().plusDays(maxRouteDuration) : to.plusDays(maxRouteDuration));
+        return null;
     }
 
 }

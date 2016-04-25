@@ -2,6 +2,7 @@ package by.bsuir.timetable.rest.web;
 
 import by.bsuir.timetable.rest.domain.Route;
 import by.bsuir.timetable.rest.domain.Station;
+import by.bsuir.timetable.rest.domain.Timetable;
 import by.bsuir.timetable.rest.service.RouteService;
 import by.bsuir.timetable.rest.service.StationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/timetable/{code}", method = RequestMethod.GET)
-    List<Route> findRouteByStation(
+    Timetable findRouteByStation(
 
             @PathVariable(value = "code")
             Long code,

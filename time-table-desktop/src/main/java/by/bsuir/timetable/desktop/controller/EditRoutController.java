@@ -1,7 +1,7 @@
 package by.bsuir.timetable.desktop.controller;
 
-import by.bsuir.timetable.desktop.dto.PointDto;
-import by.bsuir.timetable.desktop.dto.RouteDto;
+import by.bsuir.timetable.api.dto.PointDto;
+import by.bsuir.timetable.api.dto.RouteDto;
 import by.bsuir.timetable.desktop.service.RouteService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

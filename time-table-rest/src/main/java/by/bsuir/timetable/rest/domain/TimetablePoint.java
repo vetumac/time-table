@@ -1,4 +1,4 @@
-package by.bsuir.timetable.desktop.dto;
+package by.bsuir.timetable.rest.domain;
 
 import java.time.LocalDateTime;
 
