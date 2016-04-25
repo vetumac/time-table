@@ -1,15 +1,15 @@
 package by.bsuir.timetable.api.dto;
 
-public class AccountDto {
+public class UserDto {
 
     private String username;
     private String password;
 
-    public AccountDto() {
+    public UserDto() {
 
     }
 
-    public AccountDto(String password, String username) {
+    public UserDto(String password, String username) {
         this.password = password;
         this.username = username;
     }

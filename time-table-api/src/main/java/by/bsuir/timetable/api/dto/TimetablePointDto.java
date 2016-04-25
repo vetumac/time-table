@@ -1,14 +1,14 @@
-package by.bsuir.timetable.rest.domain;
+package by.bsuir.timetable.api.dto;
 
 import java.time.LocalDateTime;
 
-public class TimetablePoint {
+public class TimetablePointDto {
 
     private Long route;
     private LocalDateTime dateTime;
     private Long stay;
 
-    public TimetablePoint(LocalDateTime dateTime, Long route, Long stay) {
+    public TimetablePointDto(LocalDateTime dateTime, Long route, Long stay) {
         this.dateTime = dateTime;
         this.route = route;
         this.stay = stay;

@@ -6,11 +6,11 @@ public class TimetableDto {
 
     private StationDto stationDto;
 
-    private List<TimetablePoint> timetablePointList;
+    private List<TimetablePointDto> timetablePointDtoList;
 
-    public TimetableDto(StationDto stationDto, List<TimetablePoint> timetablePointList) {
+    public TimetableDto(StationDto stationDto, List<TimetablePointDto> timetablePointDtoList) {
         this.stationDto = stationDto;
-        this.timetablePointList = timetablePointList;
+        this.timetablePointDtoList = timetablePointDtoList;
     }
 
     public StationDto getStationDto() {
@@ -21,11 +21,11 @@ public class TimetableDto {
         this.stationDto = stationDto;
     }
 
-    public List<TimetablePoint> getTimetablePointList() {
-        return timetablePointList;
+    public List<TimetablePointDto> getTimetablePointDtoList() {
+        return timetablePointDtoList;
     }
 
-    public void setTimetablePointList(List<TimetablePoint> timetablePointList) {
-        this.timetablePointList = timetablePointList;
+    public void setTimetablePointDtoList(List<TimetablePointDto> timetablePointDtoList) {
+        this.timetablePointDtoList = timetablePointDtoList;
     }
 }
