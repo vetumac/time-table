@@ -14,8 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 @Component
 public class EditRoutController {
@@ -100,9 +99,8 @@ public class EditRoutController {
 
             codeField.setText(routeService.saveRoute(new RouteDto(
                     code,
-                    LocalTime.parse(departureField.getText()),
-                    LocalDate.parse(startField.getText()),
-                    LocalDate.parse(endField.getText()),
+                    LocalDateTime.parse(departureField.getText()),
+                    LocalDateTime.parse(endField.getText()),
                     Long.parseLong(periodField.getText()),
                     pointObservableList
             )).toString());
@@ -110,8 +108,7 @@ public class EditRoutController {
 
         findRouteButton.setOnAction(event -> {
             RouteDto routeDto = routeService.findByCode(Long.parseLong(codeField.getText()));
-            departureField.setText(routeDto.getDeparture().toString());
-            startField.setText(routeDto.getStart().toString());
+            departureField.setText(routeDto.getFirstDeparture().toString());
             endField.setText(routeDto.getEnd().toString());
             periodField.setText(routeDto.getPeriod().toString());
             pointObservableList.clear();

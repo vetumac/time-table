@@ -1,12 +1,24 @@
 package by.bsuir.timetable.api.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+
 import java.time.LocalDateTime;
 
 public class TimetablePointDto {
 
     private Long route;
+
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime dateTime;
+
     private Long stay;
+
+    public TimetablePointDto() {
+    }
 
     public TimetablePointDto(LocalDateTime dateTime, Long route, Long stay) {
         this.dateTime = dateTime;

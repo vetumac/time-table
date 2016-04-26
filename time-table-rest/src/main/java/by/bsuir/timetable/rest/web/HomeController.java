@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -54,10 +54,10 @@ public class HomeController {
             Long code,
 
             @RequestParam(value = "from")
-            LocalDate from,
+            LocalDateTime from,
 
             @RequestParam(value = "to")
-            LocalDate to) {
+            LocalDateTime to) {
 
         return routeService.findByStationAndFromAndTo(code, from, to);
 

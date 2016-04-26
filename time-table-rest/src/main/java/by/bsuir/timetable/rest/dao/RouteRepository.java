@@ -4,7 +4,7 @@ import by.bsuir.timetable.rest.domain.Route;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface RouteRepository extends MongoRepository<Route, String> {
@@ -16,6 +16,6 @@ public interface RouteRepository extends MongoRepository<Route, String> {
         return save(route);
     }
 
-    @Query("{ 'points.station': ?0, 'start': { $lt: ?1 }, 'end': { $gt: ?2 }}")
-    List<Route> findByStationAndFromAndTo(Long code, LocalDate from, LocalDate to);
+    @Query("{ 'points.station': ?0, 'firstDeparture': { $lt: ?2 }, 'end': { $gt: ?1 }}")
+    List<Route> findByStationAndFromAndTo(Long code, LocalDateTime from, LocalDateTime to);
 }

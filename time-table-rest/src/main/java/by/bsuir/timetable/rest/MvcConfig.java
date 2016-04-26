@@ -9,8 +9,9 @@ import org.springframework.format.FormatterRegistry;
 public class MvcConfig extends WebMvcAutoConfiguration.WebMvcAutoConfigurationAdapter {
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(new LocalDateConverter());
+        registry.addConverter(new LocalDateTimeConverter());
         registry.addConverter(new RouteConverter());
+        registry.addConverter(new RouteDtoConverter());
         registry.addConverter(new StationConverter());
         registry.addConverter(new UserConverter());
         registry.addConverter(new StationDtoConverter());

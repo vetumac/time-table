@@ -1,24 +1,27 @@
 package by.bsuir.timetable.api.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TimetableDto {
 
-    private StationDto stationDto;
+    private Long stationCode;
 
-    private List<TimetablePointDto> timetablePointDtoList;
+    private List<TimetablePointDto> timetablePointDtoList = new ArrayList<>();
 
-    public TimetableDto(StationDto stationDto, List<TimetablePointDto> timetablePointDtoList) {
-        this.stationDto = stationDto;
-        this.timetablePointDtoList = timetablePointDtoList;
+    public TimetableDto() {
     }
 
-    public StationDto getStationDto() {
-        return stationDto;
+    public TimetableDto(Long stationCode) {
+        this.stationCode = stationCode;
     }
 
-    public void setStationDto(StationDto stationDto) {
-        this.stationDto = stationDto;
+    public Long getStationCode() {
+        return stationCode;
+    }
+
+    public void setStationCode(Long stationCode) {
+        this.stationCode = stationCode;
     }
 
     public List<TimetablePointDto> getTimetablePointDtoList() {

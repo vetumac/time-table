@@ -1,7 +1,8 @@
 package by.bsuir.timetable.desktop.controller;
 
-import by.bsuir.timetable.api.dto.StationDto;
-import by.bsuir.timetable.desktop.service.StationService;
+import by.bsuir.timetable.api.dto.TimetableDto;
+import by.bsuir.timetable.api.dto.TimetablePointDto;
+import by.bsuir.timetable.desktop.service.TimetableService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,16 +14,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Component
 public class TimetableController {
 
     @Autowired
-    private StationService stationService;
+    private TimetableService timetableService;
 
     @FXML
-    private TableView<StationDto> stationsView;
+    private TableView<TimetablePointDto> timetableTableView;
 
     @FXML
     private Button searchStationButton;
@@ -37,29 +38,32 @@ public class TimetableController {
     private TextField searchStationTextField;
 
     @FXML
-    private TableColumn codeCol;
+    private TableColumn routeCol;
 
     @FXML
-    private TableColumn nameCol;
+    private TableColumn dateTimeCol;
 
     @FXML
-    private TableColumn zoneCol;
+    private TableColumn stayCol;
 
-    final private ObservableList<StationDto> stationObservableList = FXCollections.observableArrayList();
+    final private ObservableList<TimetablePointDto> timetablePointDtos = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
         searchStationButton.setOnAction(event -> {
-            List<StationDto> stations = stationService.findByNameLike(searchStationTextField.getText());
-            stationObservableList.clear();
-            stationObservableList.addAll(stations);
+            TimetableDto timetableDto = timetableService.getTimetible(
+                    Long.parseLong(searchStationTextField.getText()),
+                    LocalDateTime.parse(fromTextField.getText()),
+                    LocalDateTime.parse(toTextField.getText()));
+            timetablePointDtos.clear();
+            timetablePointDtos.addAll(timetableDto.getTimetablePointDtoList());
         });
 
-        codeCol.setCellValueFactory(new PropertyValueFactory("code"));
-        nameCol.setCellValueFactory(new PropertyValueFactory("name"));
-        zoneCol.setCellValueFactory(new PropertyValueFactory("zone"));
+        routeCol.setCellValueFactory(new PropertyValueFactory("route"));
+        dateTimeCol.setCellValueFactory(new PropertyValueFactory("dateTime"));
+        stayCol.setCellValueFactory(new PropertyValueFactory("stay"));
 
-        stationsView.setItems(stationObservableList);
+        timetableTableView.setItems(timetablePointDtos);
 
     }
 }

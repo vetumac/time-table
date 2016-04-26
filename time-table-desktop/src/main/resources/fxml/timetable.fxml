@@ -21,11 +21,11 @@
                 <TextField prefHeight="26.0" prefWidth="138.0" fx:id="toTextField"/>
             </children>
         </HBox>
-        <TableView fx:id="stationsView" prefHeight="410.0" prefWidth="427.0">
+        <TableView fx:id="timetableTableView" prefHeight="410.0" prefWidth="427.0">
             <columns>
-                <TableColumn fx:id="codeCol" prefWidth="75.0" text="Код"/>
-                <TableColumn fx:id="nameCol" prefWidth="200.0" text="Назване"/>
-                <TableColumn fx:id="zoneCol" prefWidth="150.0" text="Часовой пояс"/>
+                <TableColumn fx:id="routeCol" prefWidth="75.0" text="Рейс"/>
+                <TableColumn fx:id="dateTimeCol" prefWidth="200.0" text="Время"/>
+                <TableColumn fx:id="stayCol" prefWidth="150.0" text="Стоянка"/>
             </columns>
         </TableView>
     </children>

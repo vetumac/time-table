@@ -2,16 +2,13 @@ package by.bsuir.timetable.rest.domain;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Document
@@ -22,17 +19,13 @@ public class Route {
     @Indexed(unique = true)
     private Long code;
 
-    @JsonSerialize(using = LocalTimeSerializer.class)
-    @JsonDeserialize(using = LocalTimeDeserializer.class)
-    private LocalTime departure;
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    private LocalDateTime firstDeparture;
 
-    @JsonSerialize(using = LocalDateSerializer.class)
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    private LocalDate start;
-
-    @JsonSerialize(using = LocalDateSerializer.class)
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    private LocalDate end;
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    private LocalDateTime end;
 
     private Long period;
 
@@ -41,13 +34,12 @@ public class Route {
     public Route() {
     }
 
-    public Route(Long code, LocalTime departure, LocalDate start, LocalDate end, Long period, List<Point> points) {
+    public Route(Long code, LocalDateTime firstDeparture, LocalDateTime end, Long period, List<Point> points) {
         this.code = code;
-        this.departure = departure;
+        this.firstDeparture = firstDeparture;
         this.end = end;
         this.period = period;
         this.points = points;
-        this.start = start;
     }
 
     public Long getCode() {
@@ -66,19 +58,19 @@ public class Route {
         this.code = code;
     }
 
-    public LocalTime getDeparture() {
-        return departure;
+    public LocalDateTime getFirstDeparture() {
+        return firstDeparture;
     }
 
-    public void setDeparture(LocalTime departure) {
-        this.departure = departure;
+    public void setFirstDeparture(LocalDateTime firstDeparture) {
+        this.firstDeparture = firstDeparture;
     }
 
-    public LocalDate getEnd() {
+    public LocalDateTime getEnd() {
         return end;
     }
 
-    public void setEnd(LocalDate end) {
+    public void setEnd(LocalDateTime end) {
         this.end = end;
     }
 
@@ -96,14 +88,6 @@ public class Route {
 
     public void setPeriod(Long period) {
         this.period = period;
-    }
-
-    public LocalDate getStart() {
-        return start;
-    }
-
-    public void setStart(LocalDate start) {
-        this.start = start;
     }
 
     @Override

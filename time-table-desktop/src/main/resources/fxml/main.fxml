@@ -11,7 +11,7 @@
             <tabs>
                 <Tab text="Станции">
                     <content>
-                        <fx:include source="stations.fxml"/>
+                        <fx:include source="timetable.fxml"/>
                     </content>
                 </Tab>
                 <Tab text="Маршруты">
